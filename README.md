@@ -1,4 +1,4 @@
-# Dr-Mataeng 1차 프로젝트
+# Air HnB 2차 프로젝트
 
 ### Introduction
 
