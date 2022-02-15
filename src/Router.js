@@ -4,9 +4,11 @@ import { RecoilRoot } from 'recoil';
 import List from '../src/pages/List/List';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Nav/Nav';
+import Detail from './pages/Detail/Detail';
 
 const Router = () => {
   return (
+<<<<<<< HEAD
     <RecoilRoot>
       <BrowserRouter>
         <Nav />
@@ -16,6 +18,16 @@ const Router = () => {
         <Footer />
       </BrowserRouter>
     </RecoilRoot>
+=======
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<List />} />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+>>>>>>> 1cd16718 (ADD : Rough Layout)
   );
 };
 

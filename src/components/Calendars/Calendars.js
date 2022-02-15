@@ -4,8 +4,8 @@ import DatePicker from 'react-datepicker';
 import { addDays, subDays } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useRecoilState } from 'recoil';
-import AtomStartDate from './AtomStartDate';
-import AtomEndDate from './AtomEndDate';
+import AtomStartDate from '../../pages/Detail/AtomStartDate';
+import AtomEndDate from '../../pages/Detail/AtomEndDate';
 
 function Calendars() {
   const [startDate, setStartDate] = useRecoilState(AtomStartDate);
