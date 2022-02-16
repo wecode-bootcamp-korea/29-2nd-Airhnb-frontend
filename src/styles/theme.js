@@ -1,6 +1,6 @@
 const theme = {
   white: '#fff',
-  mainColor: '#0a3442',
+  mainColor: '#0A3442',
   lightGray: '#d9d9d9',
   middleGray: '#959595',
   darkGray: '#666',
@@ -15,6 +15,7 @@ const theme = {
   borderMiddleGray: '1px solid #959595',
   deepGray: '1px solid #666',
   iconSmall: '16px',
+  colorGray: '#F7F7F7',
 };
 
 export default theme;
