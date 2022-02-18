@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "서울",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "미국",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "영국",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "중국",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card4.jpg"
+    }
+  ]
+}

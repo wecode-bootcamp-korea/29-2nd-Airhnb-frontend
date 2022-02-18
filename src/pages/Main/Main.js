@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainContent from './MainContent/MainContent';
+import MainLocation from './MainLocation/MainLocation';
 
 const Main = () => {
   return (
     <MainContainer>
       <MainContent />
-      <MainContainer />
+      <MainLocation />
     </MainContainer>
   );
 };
