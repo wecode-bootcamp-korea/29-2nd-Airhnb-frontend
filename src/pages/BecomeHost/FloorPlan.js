@@ -80,7 +80,6 @@ const GoToMainAndLogo = styled.img`
 const FloorPlanText = styled.p`
   ${sectionLeftTextStyle};
   width: 450px;
-  margin-left: -50px;
 `;
 
 const FloorPlanTop = styled.div`

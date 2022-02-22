@@ -24,7 +24,7 @@ const Amenities = () => {
   const navigate = useNavigate();
   const goToMain = () => navigate('/');
   const goBack = () => navigate('/become-host/floor-plan');
-  const goToAmenities = () => navigate('/become-host/amenities');
+  const goToAmenities = () => navigate('/become-host/photos');
 
   return (
     <Section>
