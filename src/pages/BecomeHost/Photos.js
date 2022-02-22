@@ -19,7 +19,7 @@ const Photos = () => {
   const navigate = useNavigate();
   const goToMain = () => navigate('/');
   const goBack = () => navigate('/become-host/amenities');
-  const goToAmenities = () => navigate('/become-host/photos');
+  const goToTItle = () => navigate('/become-host/title');
 
   // Preview
   const [images, setImages] = useState([]);
@@ -96,7 +96,7 @@ const Photos = () => {
         </PhotosMiddle>
         <AmenitiesBottom>
           <HostPreviousButton onClick={goBack}>뒤로</HostPreviousButton>
-          <HostNextButton onClick={goToAmenities}>다음</HostNextButton>
+          <HostNextButton onClick={goToTItle}>다음</HostNextButton>
         </AmenitiesBottom>
       </PhotosMain>
     </Section>

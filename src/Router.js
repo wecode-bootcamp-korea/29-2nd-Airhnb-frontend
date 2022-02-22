@@ -9,6 +9,7 @@ import Location from './pages/BecomeHost/Location';
 import FloorPlan from './pages/BecomeHost/FloorPlan';
 import Amenities from './pages/BecomeHost/Amenities';
 import Photos from './pages/BecomeHost/Photos';
+import HouseTitle from './pages/BecomeHost/HouseTitle';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
           <Route path="floor-plan" element={<FloorPlan />} />
           <Route path="amenities" element={<Amenities />} />
           <Route path="photos" element={<Photos />} />
+          <Route path="title" element={<HouseTitle />} />
         </Route>
       </Routes>
       {/* <Footer /> */}
