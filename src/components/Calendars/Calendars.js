@@ -1,57 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
-import { addDays, subDays } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useRecoilState } from 'recoil';
 import AtomStartDate from './AtomStartDate';
 import AtomEndDate from './AtomEndDate';
+import { ko } from 'date-fns/esm/locale';
 
-function Calendars() {
+function Calendars({ inline }) {
   const [startDate, setStartDate] = useRecoilState(AtomStartDate);
   const [endDate, setEndDate] = useRecoilState(AtomEndDate);
 
   return (
     <CalendarsBox>
       <DatePicker
-        dateFormat="yyyy.MM.dd"
+        dateFormat="yyyy년 MM월 dd일"
         selected={startDate}
         onChange={date => setStartDate(date)}
         selectsStart
         startDate={startDate}
         endDate={endDate}
-        // 오늘 기준으로 과거 모두 제외.
         minDate={new Date()}
-        // 특정 제외 날짜 .
-        excludeDateIntervals={[
-          {
-            start: subDays(new Date('03/03/2022'), 0), //시작 날짜
-            end: addDays(new Date('03/07/2022'), -1), // 끝 날짜
-          },
-          {
-            start: subDays(new Date('03/12/2022'), 0),
-            end: addDays(new Date('03/16/2022'), -1),
-          },
-        ]}
+        locale={ko}
+        inline={inline}
       />
       <DatePicker
-        dateFormat="yyyy.MM.dd"
+        dateFormat="yyyy년 MM월 dd일"
         selected={endDate}
         onChange={date => setEndDate(date)}
         selectsEnd
         startDate={startDate}
         endDate={endDate}
         minDate={startDate}
-        excludeDateIntervals={[
-          {
-            start: subDays(new Date('03/03/2022'), 0), //시작 날짜
-            end: addDays(new Date('03/07/2022'), -1), // 끝 날짜
-          },
-          {
-            start: subDays(new Date('03/12/2022'), 0),
-            end: addDays(new Date('03/16/2022'), -1),
-          },
-        ]}
+        locale={ko}
+        inline={inline}
       />
     </CalendarsBox>
   );
@@ -82,6 +64,58 @@ const CalendarsBox = styled.div`
       text-align: center;
       color: ${({ theme }) => theme.mainColor};
     }
+  }
+
+  .react-datepicker-popper {
+    position: relative;
+    left: -150px;
+    top: 50px;
+  }
+
+  .react-datepicker {
+    margin: 20px 10px 0 0;
+    font-size: 14px;
+    border: 0px;
+  }
+
+  .react-datepicker__month-container {
+    border: 0px;
+  }
+
+  .react-datepicker__header {
+    background-color: white;
+    border: 0px;
+
+    .react-datepicker__current-month {
+      color: ${({ theme }) => theme.mainColor};
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  .react-datepicker__day,
+  .react-datepicker__day-name {
+    display: inline-block;
+    width: 36px;
+    color: ${({ theme }) => theme.mainColor};
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .react-datepicker__day--disabled,
+  .react-datepicker__month-text--disabled,
+  .react-datepicker__quarter-text--disabled,
+  .react-datepicker__year-text--disabled {
+    cursor: default;
+    color: #ccc;
+  }
+
+  .react-datepicker__day--selected,
+  .react-datepicker__day--in-selecting-range,
+  .react-datepicker__day--in-range {
+    background-color: ${({ theme }) => theme.mainColor};
+    color: ${({ theme }) => theme.white};
+    border-radius: 50%;
   }
 `;
 
