@@ -10,6 +10,7 @@ import FloorPlan from './pages/BecomeHost/FloorPlan';
 import Amenities from './pages/BecomeHost/Amenities';
 import Photos from './pages/BecomeHost/Photos';
 import HouseTitle from './pages/BecomeHost/HouseTitle';
+import GhostType from './pages/BecomeHost/GhostType';
 
 const Router = () => {
   return (
@@ -24,6 +25,7 @@ const Router = () => {
           <Route path="floor-plan" element={<FloorPlan />} />
           <Route path="amenities" element={<Amenities />} />
           <Route path="photos" element={<Photos />} />
+          <Route path="ghost-type" element={<GhostType />} />
           <Route path="title" element={<HouseTitle />} />
         </Route>
       </Routes>

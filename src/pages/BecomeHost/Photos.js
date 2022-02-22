@@ -19,7 +19,7 @@ const Photos = () => {
   const navigate = useNavigate();
   const goToMain = () => navigate('/');
   const goBack = () => navigate('/become-host/amenities');
-  const goToTItle = () => navigate('/become-host/title');
+  const goToTItle = () => navigate('/become-host/ghost-type');
 
   // Preview
   const [images, setImages] = useState([]);
