@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useRecoilState } from 'recoil';
 import AtomStartDate from './AtomStartDate';
 import AtomEndDate from './AtomEndDate';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
 function Calendars({ inline }) {
