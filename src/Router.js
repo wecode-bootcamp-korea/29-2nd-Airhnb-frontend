@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil';
 import List from '../src/pages/List/List';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Nav/Nav';
+import Main from './pages/Main/Main';
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
       <BrowserRouter>
         <Nav />
         <Routes>
+          <Route path="/" element={<Main />} />
           <Route path="/houses" element={<List />} />
         </Routes>
         <Footer />

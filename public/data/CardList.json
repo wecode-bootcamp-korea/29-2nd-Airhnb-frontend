@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "대한민국",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "일본",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "미국",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "스페인",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "멕시코",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "토고",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "체코",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "영국",
+      "lat": "",
+      "lng": "",
+      "src": "/images/card8.jpg"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.58.7.137:8000/';
+const BASE_URL = 'http://10.58.4.213:8000/';
 
 export const END_POINT = {
   itemList: `${BASE_URL}houses`,
