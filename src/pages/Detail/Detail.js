@@ -18,7 +18,6 @@ function Detail() {
       });
   }, [params.house_id]);
 
-  const detailData = details.result;
   const {
     name,
     house_type,
@@ -31,7 +30,7 @@ function Detail() {
     trap,
     latitude,
     longitude,
-  } = detailData;
+  } = details?.result || {};
 
   return (
     <DetailPage>
