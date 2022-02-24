@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useToggle } from '../../../../hoc/useToggle.js';
 import { itemListState } from '../../../../itemList';
-import { useRecoilValue } from 'recoil';
+import styled from 'styled-components';
 
 const ListContentMap = ({
   mapLocation,
@@ -12,10 +12,24 @@ const ListContentMap = ({
 }) => {
   const markerList = useRecoilValue(itemListState);
   const [isResize, setIsResize] = useState(true);
-  const [center, setCenter] = useState({
-    lat: 37.50646411590587,
-    lng: 127.05363184054711,
-  });
+  const [center, setCenter] = useState();
+  useEffect(() => {
+    changeCenter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [markerList]);
+  const changeCenter = () => {
+    if (markerList && markerList.results && markerList.results[0]) {
+      setCenter({
+        lat: Number(markerList.results[0].lat),
+        lng: Number(markerList.results[0].lng),
+      });
+    } else {
+      setCenter({
+        lat: 37.50646411590587,
+        lng: 127.05363184054711,
+      });
+    }
+  };
   const resizeMap = object => {
     setIsResize(prev => !prev);
     if (object.target.parentNode.parentNode.lastChild.style.width === '100%') {
@@ -31,9 +45,7 @@ const ListContentMap = ({
     top: 0,
     width: isResize ? '100%' : '100vw',
     height: '900px',
-    scrollBehavior: 'smooth',
     transition: 'width 0.5s',
-    overflow: 'hidden',
   };
 
   const [mapref, setMapRef] = React.useState(null);
@@ -55,7 +67,6 @@ const ListContentMap = ({
     setCenter({ ...center, lat: event.latLng.lat(), lng: event.latLng.lng() });
   };
   const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
-
   return (
     <ListContentMapContainer>
       <ArrowBox>

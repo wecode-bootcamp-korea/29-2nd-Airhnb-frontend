@@ -76,14 +76,3 @@ const StyledPaginateContainer = styled.div`
     }
   }
 `;
-// const PagingButton = styled.button`
-//   width: 32px;
-//   height: 32px;
-//   border-radius: 50%;
-//   background-color: black;
-//   color: white;
-//   font-size: 14px;
-//   font-weight: 600;
-//   border: none;
-//   cursor: pointer;
-// `;

@@ -73,7 +73,8 @@ const ListContentContext = () => {
               <p onClick={() => goDetail(item.house_id)}>{item.name}</p>
               <hr />
               <span onClick={() => goDetail(item.house_id)}>
-                {item.exit ? <p>{item.exit}가 존재합니다 </p> : <p>탈출구 X</p>}
+                {item.exit ? <p>탈출구가 존재합니다 </p> : <p>탈출구 X</p>}
+                {item.trap ? <p>함정이 있어요!! </p> : <p>함정 X</p>}
                 {item.ghost ? (
                   <p>moster : {item.ghost} </p>
                 ) : (
