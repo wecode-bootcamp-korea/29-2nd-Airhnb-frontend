@@ -25,7 +25,6 @@ const PropertyType = () => {
   const goToLocation = () => navigate('/become-host/location');
   const [property, setProperty] = useRecoilState(becomeHostData);
   const [properties, setProperties] = useState([]);
-  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     fetch(`${END_POINT.house_type}`)
@@ -33,9 +32,14 @@ const PropertyType = () => {
       .then(res => setProperties(res.message));
   }, []);
 
-  const checkedProperty = e => {
+  const checkedProperty = (e, id) => {
     setProperty({ ...property, house_type_id: e.target.value });
-    setIsActive(!isActive);
+    const checkedItem = properties.map(property => {
+      if (property.house_type_id === id) {
+        return { ...property, is_checked: !property.is_checked };
+      } else return { ...property, is_checked: false };
+    });
+    setProperties(checkedItem);
   };
 
   return (
@@ -50,13 +54,11 @@ const PropertyType = () => {
         </PropertyTypeTop>
         <PropertyTypeMiddle>
           {properties.map(property => (
-            <PropertyTypes
-              key={property.house_type_id}
-              value={property.house_type_id}
-              onClick={checkedProperty}
-            >
-              {property.house_type_name}
-            </PropertyTypes>
+            <PropertyTypeComponent
+              key={property.id}
+              property={property}
+              checkedProperty={checkedProperty}
+            />
           ))}
         </PropertyTypeMiddle>
         <PropertyTypeBottom>
@@ -67,6 +69,37 @@ const PropertyType = () => {
     </Section>
   );
 };
+
+const PropertyTypeComponent = ({ property, checkedProperty }) => {
+  const { house_type_id, house_type_name, is_checked } = property;
+
+  return (
+    <PropertyTypeStyle
+      key={house_type_id}
+      value={house_type_id}
+      onClick={e => checkedProperty(e, house_type_id)}
+      isChecked={is_checked}
+    >
+      {house_type_name}
+    </PropertyTypeStyle>
+  );
+};
+
+const PropertyTypeStyle = styled.button`
+  width: 200px;
+  height: 100px;
+  margin: 10px 20px;
+  border: ${props => (props.isChecked === 'False' ? '1px' : '2px')} solid
+    ${props => (props.isChecked ? 'black' : 'lightGray')};
+  border-radius: 15px;
+  background-color: ${props => (props.isChecked ? '#ddd' : 'white')};
+  text-align: center;
+  font-size: 20px;
+  line-height: 100px;
+  &:hover {
+    border: 2px solid black;
+  }
+`;
 
 const Section = styled.section`
   ${sectionStyle}
@@ -103,26 +136,6 @@ const PropertyTypeMiddle = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   width: 500px;
-`;
-
-const PropertyTypes = styled.button`
-  width: 200px;
-  height: 100px;
-  margin: 10px 20px;
-  border: 1px solid ${({ theme }) => theme.darkGray};
-  border-radius: 15px;
-  background-color: #fff;
-  text-align: center;
-  font-size: 20px;
-  line-height: 100px;
-  &:hover {
-    border: 2px solid black;
-  }
-  &:active {
-    border: 2px solid black;
-    background-color: ${({ theme }) => theme.lightGray};
-    color: #fff;
-  }
 `;
 
 const PropertyTypeBottom = styled.div`

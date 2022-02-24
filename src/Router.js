@@ -20,7 +20,7 @@ const Router = () => {
   return (
     <RecoilRoot>
       <BrowserRouter>
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/houses" element={<List />} />
@@ -39,7 +39,7 @@ const Router = () => {
           </Route>
           <Route path="/houses/:house_id" element={<Detail />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </RecoilRoot>
   );

@@ -32,8 +32,14 @@ const GhostType = () => {
       .then(res => setGhostTypes(res.message));
   }, []);
 
-  const checkedGhostType = e => {
+  const checkedGhostType = (e, id) => {
     setGhostType({ ...ghostType, ghost_id: e.target.value });
+    const checkedItem = ghostTypes.map(ghostType => {
+      if (ghostType.ghost_id === id) {
+        return { ...ghostType, is_checked: !ghostType.is_checked };
+      } else return { ...ghostType, is_checked: false };
+    });
+    setGhostTypes(checkedItem);
   };
 
   return (
@@ -48,13 +54,11 @@ const GhostType = () => {
         </GhostTypeTop>
         <GhostTypeMiddle>
           {ghostTypes.map(ghostType => (
-            <GhostTypes
-              key={ghostType.ghost_id}
-              value={ghostType.ghost_id}
-              onClick={checkedGhostType}
-            >
-              {ghostType.ghost_name}
-            </GhostTypes>
+            <GhostTypeComponent
+              key={ghostType.id}
+              ghostType={ghostType}
+              checkedGhostType={checkedGhostType}
+            />
           ))}
         </GhostTypeMiddle>
         <GhostTypeBottom>
@@ -65,6 +69,38 @@ const GhostType = () => {
     </Section>
   );
 };
+
+const GhostTypeComponent = ({ ghostType, checkedGhostType }) => {
+  const { ghost_id, ghost_name, is_checked } = ghostType;
+  return (
+    <GhostTypes
+      key={ghost_id}
+      value={ghost_id}
+      onClick={e => {
+        checkedGhostType(e, ghost_id);
+      }}
+      isChecked={is_checked}
+    >
+      {ghost_name}
+    </GhostTypes>
+  );
+};
+
+const GhostTypes = styled.button`
+  width: 200px;
+  height: 100px;
+  margin: 10px 20px;
+  border: ${props => (props.isChecked === 'False' ? '1px' : '2px')} solid
+    ${props => (props.isChecked ? 'black' : 'lightGray')};
+  border-radius: 15px;
+  background-color: ${props => (props.isChecked ? '#ddd' : 'white')};
+  text-align: center;
+  font-size: 20px;
+  line-height: 100px;
+  &:hover {
+    border: 2px solid black;
+  }
+`;
 
 const Section = styled.section`
   ${sectionStyle}
@@ -99,21 +135,6 @@ const GhostTypeMiddle = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 500px;
-`;
-
-const GhostTypes = styled.button`
-  width: 200px;
-  height: 100px;
-  margin: 10px 20px;
-  border: 1px solid ${({ theme }) => theme.darkGray};
-  border-radius: 15px;
-  background-color: #fff;
-  text-align: center;
-  font-size: 20px;
-  line-height: 100px;
-  &:hover {
-    border: 2px solid black;
-  }
 `;
 
 const GhostTypeBottom = styled.div`

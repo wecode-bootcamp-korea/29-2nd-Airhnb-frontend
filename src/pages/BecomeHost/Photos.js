@@ -39,7 +39,7 @@ const Photos = () => {
 
   const onDataSubmit = () => {
     const formData = new FormData();
-    images.map(image => {
+    images.forEach(image => {
       formData.append('house_images', image);
       formData.append('house_type_id', item.house_type_id);
       formData.append('latitude', item.latitude);
@@ -55,9 +55,13 @@ const Photos = () => {
     });
     fetch(`${END_POINT.host}`, {
       method: 'POST',
+      headers: {
+        Authorization: sessionStorage.getItem('JWT'),
+      },
       body: formData,
     })
       .then(res => res.json())
+      .then(navigate('/become-host/preview'))
       .catch(error => {
         throw new Error(error);
       });
@@ -84,10 +88,10 @@ const Photos = () => {
             {previews.length > 0 &&
               previews.map((image, idx) => {
                 return (
-                  <div key={image}>
+                  <PreviewImage key={image}>
                     <img src={image} alt="미리보기" />
-                    <button onClick={() => deleteFile(idx)}>X</button>
-                  </div>
+                    <button onClick={() => deleteFile(idx)}>삭제</button>
+                  </PreviewImage>
                 );
               })}
           </div>
@@ -97,18 +101,35 @@ const Photos = () => {
               multiple
               accept="images/*"
               onChange={uploadImages}
-              // style={{ display: 'none' }}
             />
           </form>
         </PhotosMiddle>
         <AmenitiesBottom>
           <HostPreviousButton onClick={goBack}>뒤로</HostPreviousButton>
-          <HostNextButton onClick={onDataSubmit}>통신!!</HostNextButton>
+          <HostNextButton onClick={onDataSubmit}>다음</HostNextButton>
         </AmenitiesBottom>
       </PhotosMain>
     </Section>
   );
 };
+
+const PreviewImage = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    width: 400px;
+    height: 200px;
+    margin: 0 10px 20px 0;
+    border: 1px solid gray;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  button {
+    width: 50px;
+  }
+`;
+
 const Section = styled.section`
   ${sectionStyle}
 `;

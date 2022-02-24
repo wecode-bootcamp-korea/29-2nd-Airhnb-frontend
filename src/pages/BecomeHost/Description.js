@@ -70,7 +70,7 @@ const DescriptionTitleText = styled.p`
 
 const DescriptionTitleInput = styled.input`
   width: 500px;
-  height: 100px;
+  height: 300px;
   padding: 10px;
   border: 1px solid ${({ theme }) => theme.lightGray};
   border-radius: 15px;

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.58.7.95:8000/';
+const BASE_URL = 'http://13.124.235.41:8000/';
 const LIST_BASE_URL = 'http://10.58.7.95:8000/';
 export const DETAIL_URL = 'http://10.58.7.64:8000';
 

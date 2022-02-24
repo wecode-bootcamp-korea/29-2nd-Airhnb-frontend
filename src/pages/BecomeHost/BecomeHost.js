@@ -55,9 +55,8 @@ const BecomeHostMainImage = styled.div`
 `;
 
 const BecomeHostMain = styled.div`
-  display: flex;
+  ${flexAlign};
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   width: 50%;
   background-color: black;

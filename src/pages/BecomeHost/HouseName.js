@@ -44,7 +44,7 @@ const HouseName = () => {
             <HouseTitleText>숙소 이름 정하기</HouseTitleText>
             <HouseTitleInput
               type="textarea"
-              placeholder="유령을 만날 수 있는 매력 넘치는 흉가"
+              placeholder="ex) 유령을 만날 수 있는 매력 넘치는 흉가"
               onChange={writeHouseName}
             />
           </WriteHouseTitle>
@@ -71,7 +71,7 @@ const HouseTitleText = styled.p`
 const HouseTitleInput = styled.input`
   width: 500px;
   height: 100px;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid ${({ theme }) => theme.lightGray};
   border-radius: 15px;
   margin-bottom: 10px;
