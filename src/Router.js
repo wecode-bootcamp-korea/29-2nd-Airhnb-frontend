@@ -16,12 +16,13 @@ import Description from './pages/BecomeHost/Description';
 import Photos from './pages/BecomeHost/Photos';
 import Preview from './pages/BecomeHost/Preview';
 import Complete from './pages/BecomeHost/Complete';
+import Detail from './pages/Detail/Detail';
 
 const Router = () => {
   return (
     <RecoilRoot>
       <BrowserRouter>
-        {/* <Nav /> */}
+        <Nav />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/houses" element={<List />} />
@@ -38,8 +39,9 @@ const Router = () => {
             <Route path="preview" element={<Preview />} />
             <Route path="complete" element={<Complete />} />
           </Route>
+          <Route path="/houses/:house_id" element={<Detail />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </RecoilRoot>
   );
