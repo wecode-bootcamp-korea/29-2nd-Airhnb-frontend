@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { queryParam } from '../../../../../../../queryparam';
+import { useRecoilValue } from 'recoil';
 
-const CheckBox = ({ item, index, name, addQuery, deleteQuery, query }) => {
+const CheckBox = ({ item, index, name, addQuery, deleteQuery }) => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const queryParameter = useLocation().search.split('?')[1];
@@ -15,6 +17,7 @@ const CheckBox = ({ item, index, name, addQuery, deleteQuery, query }) => {
       }
     }
   };
+  const query = useRecoilValue(queryParam)[name];
 
   useEffect(() => {
     divideParam();

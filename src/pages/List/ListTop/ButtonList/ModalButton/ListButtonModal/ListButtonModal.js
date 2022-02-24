@@ -2,21 +2,23 @@ import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import styled from 'styled-components';
 import ListCheckBox from './ListCheckBox/ListCheckBox';
+import { queryParam } from '../../../../../../queryparam';
+import { useRecoilState } from 'recoil';
 
 const ListButtonModal = ({ type, onClick, name, closeModal }) => {
   const [isValid, setIsValid] = useState(true);
   const [query, setQuery] = useState([]);
+  const [param, setParam] = useRecoilState(queryParam);
 
-  const addQuery = e => {
-    setQuery(prev => prev.concat(e));
+  const addQuery = item => {
+    setParam({ ...param, [name]: [...param[name], item] });
   };
 
-  const deleteQuery = name => {
-    setQuery(prev =>
-      prev.filter(item => {
-        return name !== item;
-      })
-    );
+  const deleteQuery = item => {
+    setParam({
+      ...param,
+      [name]: [...param[name].filter(value => value !== item)],
+    });
   };
 
   return (
@@ -31,7 +33,9 @@ const ListButtonModal = ({ type, onClick, name, closeModal }) => {
             query={query}
           />
           <CorrectBox>
-            <span>지우기</span>
+            <span onClick={() => closeModal(query, name, 'delete')}>
+              지우기
+            </span>
             <SaveButton onClick={() => closeModal(query, name)}>
               저장
             </SaveButton>

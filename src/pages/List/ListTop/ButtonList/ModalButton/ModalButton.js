@@ -4,27 +4,29 @@ import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ListButtonModal from './ListButtonModal/ListButtonModal';
 import { useState } from 'react/cjs/react.development';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { queryParam, setQueryParam } from '../../../../../queryparam';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 const ModalButton = ({ item, index }) => {
   const [isValid, setIsValid] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation().search;
   const ref = useRef();
+  const totalQuery = useRecoilValue(setQueryParam);
+  const [param, setParam] = useRecoilState(queryParam);
   const validModal = () => {
     setIsValid(prev => !prev);
   };
-  const closeModal = async (query, name) => {
-    setIsValid(false);
-    let addQuery = location ? location : '';
-    if (query.length !== 0) {
-      for (let key of query) {
-        // 백엔드 통신
-        addQuery += `${name}=${key}&`;
-      }
+
+  const closeModal = async (query, name, point) => {
+    if (point === 'delete') {
+      setParam({
+        ...param,
+        [name]: [],
+      });
     }
-    // 백엔드 통신
-    navigate(`/houses${addQuery.includes('?') ? addQuery : '?' + addQuery}`);
+    setIsValid(false);
+    navigate(`/houses${totalQuery}`);
   };
 
   const englishName = Object.keys(item)[0];
