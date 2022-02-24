@@ -28,13 +28,13 @@ const FloorPlan = () => {
     if (numberOfPeople <= 0) return numberOfPeople;
     else {
       setNumberOfPeople(prev => prev - 1);
-      setFloorPlan({ ...numberOfPeople, max_guest: numberOfPeople - 1 });
+      setFloorPlan({ ...floorPlan, max_guest: numberOfPeople - 1 });
     }
   };
 
   const personCountUp = () => {
     setNumberOfPeople(prev => prev + 1);
-    setFloorPlan({ ...numberOfPeople, max_guest: numberOfPeople + 1 });
+    setFloorPlan({ ...floorPlan, max_guest: numberOfPeople + 1 });
   };
 
   return (

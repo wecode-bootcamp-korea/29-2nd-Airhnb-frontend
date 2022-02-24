@@ -26,12 +26,6 @@ const Preview = () => {
       <PreviewSection>
         <GoToMainAndLogo src="/images/airhnb-white.svg" />
         <PreviewText>새로운 흉가 페이지를 확인하세요!</PreviewText>
-        {/* <PreviewSubText>
-          등록 후 24시간이 지나야 흉가가 게스트에게 공개됩니다.
-        </PreviewSubText>
-        <PreviewSubText>
-          언제든지 정보를 추가하거나 변경하실 수 있습니다.
-        </PreviewSubText> */}
       </PreviewSection>
       <PreviewMain>
         <PreviewTop>
@@ -67,10 +61,6 @@ const PreviewText = styled.p`
   ${sectionLeftTextStyle}
   width: 450px;
 `;
-
-// const PreviewSubText = styled.p`
-//   ${sectionLeftTextStyle}
-// `;
 
 const PreviewTop = styled.div`
   ${sectionMainTopStyle}

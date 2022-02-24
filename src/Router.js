@@ -25,7 +25,7 @@ const Router = () => {
   return (
     <RecoilRoot>
       <BrowserRouter>
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/houses" element={<List />} />
@@ -46,7 +46,7 @@ const Router = () => {
           <Route path="/Login" element={<Login />} />
           <Route path="/users/kakao/signin" element={<OauthHandler />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </RecoilRoot>
   );
