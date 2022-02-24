@@ -16,6 +16,12 @@ const theme = {
   deepGray: '1px solid #666',
   iconSmall: '16px',
   colorGray: '#F7F7F7',
+  flexMixin: (justify = 'center', align = 'center', direction) => `
+  display:flex;
+  justify-content:${justify};
+  align-items:${align};
+  flex-direction:${direction};
+  `,
 };
 
 export default theme;
