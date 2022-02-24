@@ -7,14 +7,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 import AtomStartDate from '../../../components/Calendars/AtomStartDate';
 import AtomEndDate from '../../../components/Calendars/AtomEndDate';
-import { DETAIL_URL } from '../../config';
+import { DETAIL_URL } from '../../../config';
 
 function DetailHouseReservation({ maxGuest }) {
   const [startDate, setStartDate] = useRecoilState(AtomStartDate);
   const [endDate, setEndDate] = useRecoilState(AtomEndDate);
   const [count, setCount] = useState(1);
-
-  const navigate = useNavigate();
 
   const plusCount = e => {
     e.preventDefault();
@@ -30,6 +28,7 @@ function DetailHouseReservation({ maxGuest }) {
     }
   };
 
+  const navigate = useNavigate();
   function parseDate(d) {
     return (
       d.getFullYear() +
@@ -91,7 +90,6 @@ function DetailHouseReservation({ maxGuest }) {
             locale={ko}
           />
         </CalendarsBox>
-        <CalendarsBox />
         <Personnel>
           <PersonnelText>인원 수</PersonnelText>
           <Counter>
