@@ -74,7 +74,8 @@ Air bnb를 모티브로한 흉가 예약 시스템
 
 흉가 상세페이지(정지민)
 
-![detail](https://user-images.githubusercontent.com/68885795/155672371-b72a202b-1f1b-4988-9bf3-bb5ccf2d19d6.gif)
+![detail](https://user-images.githubusercontent.com/68885795/155672723-2b2062ce-cdc0-4020-9584-6d094be2990b.gif)
+
 
 
 - 흉가에 따른 상세페이지 렌더링 화면 변경.
