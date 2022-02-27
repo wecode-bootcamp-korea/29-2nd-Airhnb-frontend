@@ -86,13 +86,13 @@ Air bnb를 모티브로한 흉가 예약 시스템
 
 <br>
 
-로그인(최화종)
+로그인(이화종)
 
 - kakao 소셜 로그인 (rest api 이용한 백엔드와 통신)
 
 <br>
 
-Nav(최화종)
+Nav(이화종)
 
 - Google map api 이용한 위치 검색 기능 구현
 - Date picker를 이용한 예약 날짜 기능 구현
